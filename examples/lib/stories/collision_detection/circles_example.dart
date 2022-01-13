@@ -1,7 +1,7 @@
+import 'package:flame/collision_detection.dart';
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
-import 'package:flame/geometry.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart' hide Image, Draggable;
 
@@ -25,7 +25,7 @@ class CirclesExample extends FlameGame with HasCollisionDetection, TapDetector {
 }
 
 class MyCollidable extends PositionComponent
-    with HasGameRef<CirclesExample>, HasHitboxes, Collidable {
+    with HasGameRef<CirclesExample>, HasHitboxes {
   late Vector2 velocity;
   final _collisionColor = Colors.amber;
   final _defaultColor = Colors.cyan;
@@ -61,7 +61,7 @@ class MyCollidable extends PositionComponent
 
   @override
   void render(Canvas canvas) {
-    renderHitboxes(canvas);
+    renderDebugMode(canvas);
   }
 
   @override
